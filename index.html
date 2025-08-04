@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Copy Demo</title>
+  <style>
+    #toast {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 8px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <textarea id="outputPrompt">Przykładowy tekst</textarea>
+  <button id="copy-btn">Kopiuj</button>
+  <div id="toast"></div>
+  <script>
+    const outputPrompt = document.getElementById('outputPrompt');
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2000);
+    }
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      navigator.clipboard
+        .writeText(outputPrompt.value)
+        .then(() => showToast('Skopiowano do schowka!'))
+        .catch(() => showToast('Nie udało się skopiować.'));
+    });
+  </script>
+</body>
+</html>
