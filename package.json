@@ -1,0 +1,12 @@
+{
+  "name": "secure-gemini-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --check server/proxy.js && node --check client/callGeminiAPI.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}
