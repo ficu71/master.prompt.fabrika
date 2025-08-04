@@ -1,0 +1,13 @@
+{
+  "name": "gemini-proxy",
+  "version": "1.0.0",
+  "description": "Gemini API proxy server with front-end",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -e \"console.log('No tests specified')\""
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
