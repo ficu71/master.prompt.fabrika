@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Loading Test</title>
+</head>
+<body>
+  <button id="controlA">Control A</button>
+  <button id="controlB">Control B</button>
+  <button id="controlC">Control C</button>
+  <script>
+    const elements = {
+      controlA: { btn: document.getElementById('controlA') },
+      controlB: { btn: document.getElementById('controlB') },
+      controlC: { btn: document.getElementById('controlC') }
+    };
+
+    function setLoading(buttonType, isLoading) {
+      elements[buttonType].btn.disabled = isLoading;
+    }
+  </script>
+</body>
+</html>
