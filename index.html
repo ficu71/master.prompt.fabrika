@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Fabrika</title>
+    <style>
+      :root {
+        --glow-color: #ff8800;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #eee;
+        text-align: center;
+        padding: 2rem;
+      }
+      #output {
+        transition: filter 0.3s ease-in-out;
+      }
+      .output-glow {
+        filter: drop-shadow(0 0 0.75rem var(--glow-color));
+      }
+      .pulse {
+        animation: pulse 0.6s ease-in-out;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      input,
+      button {
+        padding: 0.5rem 1rem;
+        margin: 0.25rem;
+        border-radius: 0.25rem;
+        border: none;
+      }
+      button {
+        background: var(--glow-color);
+        color: #111;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+      }
+      button:hover {
+        background: #ffa733;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Prompt Fabrika</h1>
+    <div>
+      <input id="title-input" placeholder="New title" />
+      <button id="set-title">Set Title</button>
+    </div>
+    <div>
+      <input id="persona-input" placeholder="Persona" />
+      <button id="forge-btn">Forge Persona</button>
+    </div>
+    <p id="output"></p>
+    <script>
+      const output = document.getElementById("output");
+      const title = document.getElementById("title");
+
+      document.getElementById("forge-btn").addEventListener("click", () => {
+        const persona = document.getElementById("persona-input").value.trim();
+        if (persona) {
+          output.textContent = `Persona forged: ${persona}`;
+          output.classList.add("output-glow", "pulse");
+          setTimeout(
+            () => output.classList.remove("pulse", "output-glow"),
+            600,
+          );
+        }
+      });
+
+      document.getElementById("set-title").addEventListener("click", () => {
+        const newTitle = document.getElementById("title-input").value.trim();
+        if (newTitle) {
+          title.textContent = newTitle;
+          title.classList.add("pulse");
+          setTimeout(() => title.classList.remove("pulse"), 600);
+        }
+      });
+    </script>
+  </body>
+</html>
