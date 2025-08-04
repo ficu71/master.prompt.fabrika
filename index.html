@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QR Modal Demo</title>
+  <style>
+    .hidden { display: none; }
+    .flex { display: flex; }
+    #qr-modal { position: fixed; inset: 0; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
+    .modal-content { background: white; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <button id="open-modal">Open Modal</button>
+  <div id="qr-modal" class="hidden">
+    <div class="modal-content">
+      <p>QR Modal Content</p>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
