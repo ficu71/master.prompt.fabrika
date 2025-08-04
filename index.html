@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Prompt Forge</title>
+<style>
+/* Basic layout */
+body { font-family: sans-serif; padding: 1rem; }
+textarea { width: 100%; height: 200px; }
+
+.output-glow {
+  box-shadow: 0 0 10px 2px #ff0;
+  animation: outputGlow 1s ease-out forwards;
+}
+
+@keyframes outputGlow {
+  from { box-shadow: 0 0 10px 2px #ff0; }
+  to { box-shadow: 0 0 0 0 #ff0; }
+}
+</style>
+</head>
+<body>
+<h1>Prompt Forge</h1>
+<textarea id="output" placeholder="Your forged prompt will appear here..."></textarea>
+<br />
+<button id="forge-btn">Forge Prompt</button>
+<script>
+const textarea = document.getElementById('output');
+const button = document.getElementById('forge-btn');
+button.addEventListener('click', () => {
+  textarea.value = 'Forged prompt at ' + new Date().toLocaleTimeString();
+  textarea.classList.add('output-glow');
+  textarea.addEventListener('animationend', () => textarea.classList.remove('output-glow'), {once: true});
+});
+</script>
+</body>
+</html>
